@@ -26,16 +26,19 @@ public class TextCompositeImpl implements TextComposite {
 
   @Override
   public void add(TextComponent component) {
+    logger.info("TextCompositeImpl.add()");
     children.add(component);
   }
 
   @Override
   public List<TextComponent> getChildren() {
+    logger.info("TextCompositeImpl.getChildren()");
     return List.copyOf(children);
   }
 
   @Override
   public void setChildren(List<TextComponent> children) {
+    logger.info("TextCompositeImpl.setChildren()");
     this.children.clear();
     this.children.addAll(children);
   }
@@ -58,6 +61,7 @@ public class TextCompositeImpl implements TextComposite {
 
   @Override
   public int getCount() {
+    logger.info("TextCompositeImpl.getCount()");
     int count = 0;
     for (TextComponent component : children) {
       count += component.getCount();

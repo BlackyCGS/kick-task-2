@@ -6,18 +6,23 @@ import by.glesap.task2.composite.TextComposite;
 import by.glesap.task2.composite.impl.TextCompositeImpl;
 import by.glesap.task2.enums.TextComponentType;
 import by.glesap.task2.service.TextOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 public class TextOperationImpl implements TextOperation {
+  private static final Logger logger = LoggerFactory.getLogger(TextOperationImpl.class);
 
   @Override
   public String restoreText(TextComposite root) {
+    logger.info("TextOperationImpl.restoreText()");
     return root.asText();
   }
 
   @Override
   public Optional<Integer> findMostSentencesWithSameWords(TextComposite root) {
+    logger.info("TextOperationImpl.findMostSentencesWithSameWords()");
     Map<String, Set<TextComposite>> sentencesWithSameWords = new HashMap<>();
     List<TextComposite> sentences = findAllSentences(root);
     if (sentences.isEmpty()) {
@@ -38,6 +43,7 @@ public class TextOperationImpl implements TextOperation {
 
   private void findUniqueWordsInSentence(TextComposite sentence,
                                                        Map<String, Set<TextComposite>> sentencesWithSameWords ) {
+    logger.info("TextOperationImpl.findUniqueWordsInSentence()");
     List<TextComponent> children = sentence.getChildren();
     for (TextComponent child : children) {
       List<TextComponent> lexemeChildren = ((TextCompositeImpl) child).getChildren();
@@ -58,6 +64,7 @@ public class TextOperationImpl implements TextOperation {
 
   @Override
   public List<String> getSentencesWithLexemesAsc(TextComposite root) {
+    logger.info("TextOperationImpl.getSentencesWithLexemesAsc()");
     List<TextComposite> sentences = findAllSentences(root);
     Comparator<TextComposite> lexemeAmountComparator = new LexemeAmountComparator();
     return sentences
@@ -69,6 +76,7 @@ public class TextOperationImpl implements TextOperation {
 
   @Override
   public String swapFirstAndLastLexemesInSentences(TextComposite root) {
+    logger.info("TextOperationImpl.swapFirstAndLastLexemesInSentences()");
     final List<TextComposite> sentences = findAllSentences(root);
     for (TextComposite sentence : sentences) {
       TextComponent first = sentence.getChildren().getFirst();
@@ -82,6 +90,7 @@ public class TextOperationImpl implements TextOperation {
   }
 
   private List<TextComposite> findAllSentences(TextComposite root) {
+    logger.info("TextOperationImpl.findAllSentences()");
     List<TextComponent> sentences = new ArrayList<>();
     for (TextComponent component : root.getChildren()) {
       if (component instanceof TextComposite textComposite

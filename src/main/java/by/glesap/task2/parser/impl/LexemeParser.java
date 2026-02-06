@@ -23,7 +23,6 @@ public class LexemeParser extends BaseParser {
    * Matches any word that has or has not any punctuation, brackets, apostrophe
    */
   private static final String WORD_WITH_PUNCTUATION_MATCHER = "[\\p{Po}|\\p{Ps}]*[\\p{L}']+[\\p{Po}|\\p{Pe}]*";
-//[\p{L}']+[\p{Po}]*
 
   @Override
   public void parse(String text, TextComposite parent) {
