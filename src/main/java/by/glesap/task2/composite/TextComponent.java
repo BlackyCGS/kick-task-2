@@ -1,6 +1,6 @@
 package by.glesap.task2.composite;
 
-public interface TextComponent {
+public interface  TextComponent {
 
   String asText();
   int getCount();

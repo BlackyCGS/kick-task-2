@@ -71,7 +71,11 @@ public class TextCompositeImpl implements TextComposite {
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof TextCompositeImpl other) {
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() == obj.getClass()) {
+      TextCompositeImpl other = (TextCompositeImpl) obj;
       if (other.getType() != type) {
         return false;
       }

@@ -1,8 +1,6 @@
 package by.glesap.task2.service;
 
-import by.glesap.task2.composite.TextComponent;
 import by.glesap.task2.composite.TextComposite;
-
 import java.util.List;
 import java.util.Optional;
 

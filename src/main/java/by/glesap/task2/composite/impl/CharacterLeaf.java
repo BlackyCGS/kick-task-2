@@ -8,11 +8,6 @@ import org.slf4j.LoggerFactory;
 public class CharacterLeaf implements TextComponent {
   private static final Logger logger = LoggerFactory.getLogger(CharacterLeaf.class);
   private static final int LENGTH = 1;
-
-  public TextComponentType getType() {
-    return type;
-  }
-
   private final TextComponentType type;
   private final Character character;
 
@@ -21,13 +16,38 @@ public class CharacterLeaf implements TextComponent {
     this.character = character;
   }
 
+  public TextComponentType getType() {
+    return type;
+  }
+
   @Override
   public String asText() {
+    logger.info("CharacterLeaf.asText()");
     return character.toString();
   }
 
   @Override
   public int getCount() {
     return LENGTH;
+  }
+
+  @Override
+  public  boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() == obj.getClass()) {
+      CharacterLeaf other = (CharacterLeaf) obj;
+      if (this.getType() != other.getType()) {
+        return false;
+      }
+      return this.asText().equals(other.asText());
+    }
+    return false;
+  }
+
+  @Override
+  public int hashCode() {
+    return character.hashCode();
   }
 }

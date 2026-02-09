@@ -12,7 +12,7 @@ import java.io.IOException;
 import static by.glesap.task2.enums.TextComponentType.TEXT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TextParserTest {
+class TextParserTest {
   private final CustomParser textParser = new TextParser();
   private final CustomFileReader reader = new CustomFileReaderImpl();
 

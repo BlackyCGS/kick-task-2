@@ -6,11 +6,9 @@ import by.glesap.task2.parser.CustomParser;
 import by.glesap.task2.reader.CustomFileReader;
 import by.glesap.task2.reader.impl.CustomFileReaderImpl;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
 import static by.glesap.task2.enums.TextComponentType.PARAGRAPH;
-import static by.glesap.task2.enums.TextComponentType.TEXT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParagraphParserTest {
